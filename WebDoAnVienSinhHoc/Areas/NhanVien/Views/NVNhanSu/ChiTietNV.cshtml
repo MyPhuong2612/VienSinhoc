@@ -1,0 +1,27 @@
+﻿@model IEnumerable<WebDoAnVienSinhHoc.Models.viewThongTinNhanVien>
+
+@{
+    ViewBag.Title = "CTDanhSachNhanVienNghienCuu";
+    Layout = "~/Areas/NhanVien/Views/Shared/_LayoutNhanVien.cshtml";
+}
+
+<h2>Thông tin tài khoản</h2>
+
+<table class="table" style="width:500px">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th style="width:30%">Tên đăng nhập</th>
+            <td style="width:70%">
+                @Html.DisplayFor(modelItem => item.TenTK)
+            </td>
+        </tr>
+        <tr>
+            <th>Mật khẩu</th>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatKhau)
+            </td>
+        </tr>
+    }
+</table>
+<a href="~/NhanVien/NVNhanSu/DanhSachNhanVienNghienCuu">Trở lại</a>

@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VSHModelStoreContainer" CdmEntityContainer="VSHEntities1">
+    <FunctionImportMapping FunctionImportName="spDangKy1" FunctionName="VSHModel.Store.spDangKy1" />
+    <FunctionImportMapping FunctionImportName="spSearch_SanPham" FunctionName="VSHModel.Store.spSearch_SanPham">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VSHModel.spSearch_SanPham_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MaChung" ColumnName="MaChung" />
+          <ScalarProperty Name="TenKhoaHoc" ColumnName="TenKhoaHoc" />
+          <ScalarProperty Name="SoLuongTon" ColumnName="SoLuongTon" />
+          <ScalarProperty Name="GiaBan" ColumnName="GiaBan" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="KhachHangTaiKhoans">
+      <EntityTypeMapping TypeName="VSHModel.KhachHangTaiKhoan">
+        <MappingFragment StoreEntitySet="KhachHangTaiKhoan">
+          <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="TenTK" ColumnName="TenTK" />
+          <ScalarProperty Name="MaXa" ColumnName="MaXa" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spShowViewKHTK" FunctionName="VSHModel.Store.spShowViewKHTK">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VSHModel.spShowViewKHTK_Result">
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="MaXa" ColumnName="MaXa" />
+          <ScalarProperty Name="TenTK" ColumnName="TenTK" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="ChucVus">
+      <EntityTypeMapping TypeName="VSHModel.ChucVu">
+        <MappingFragment StoreEntitySet="ChucVu">
+          <ScalarProperty Name="TenChucVu" ColumnName="TenChucVu" />
+          <ScalarProperty Name="MaChucVu" ColumnName="MaChucVu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTHoaDons">
+      <EntityTypeMapping TypeName="VSHModel.CTHoaDon">
+        <MappingFragment StoreEntitySet="CTHoaDon">
+          <ScalarProperty Name="MaSP" ColumnName="MaSP" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="MaHD" ColumnName="MaHD" />
+          <ScalarProperty Name="MaCT" ColumnName="MaCT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DoiTacs">
+      <EntityTypeMapping TypeName="VSHModel.DoiTac">
+        <MappingFragment StoreEntitySet="DoiTac">
+          <ScalarProperty Name="LinhVucHoatDong" ColumnName="LinhVucHoatDong" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="TenDoiTac" ColumnName="TenDoiTac" />
+          <ScalarProperty Name="MaDoiTac" ColumnName="MaDoiTac" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DuAns">
+      <EntityTypeMapping TypeName="VSHModel.DuAn">
+        <MappingFragment StoreEntitySet="DuAn">
+          <ScalarProperty Name="MaDT" ColumnName="MaDT" />
+          <ScalarProperty Name="MaPB" ColumnName="MaPB" />
+          <ScalarProperty Name="ThoiGianThucHien" ColumnName="ThoiGianThucHien" />
+          <ScalarProperty Name="TenDuAn" ColumnName="TenDuAn" />
+          <ScalarProperty Name="MaDuAn" ColumnName="MaDuAn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoaDons">
+      <EntityTypeMapping TypeName="VSHModel.HoaDon">
+        <MappingFragment StoreEntitySet="HoaDon">
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+          <ScalarProperty Name="MaHD" ColumnName="MaHD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Huyens">
+      <EntityTypeMapping TypeName="VSHModel.Huyen">
+        <MappingFragment StoreEntitySet="Huyen">
+          <ScalarProperty Name="MaT" ColumnName="MaT" />
+          <ScalarProperty Name="TenHuyen" ColumnName="TenHuyen" />
+          <ScalarProperty Name="MaHuyen" ColumnName="MaHuyen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhachHangs">
+      <EntityTypeMapping TypeName="VSHModel.KhachHang">
+        <MappingFragment StoreEntitySet="KhachHang">
+          <ScalarProperty Name="TenTK" ColumnName="TenTK" />
+          <ScalarProperty Name="MaXa" ColumnName="MaXa" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lops">
+      <EntityTypeMapping TypeName="VSHModel.Lop">
+        <MappingFragment StoreEntitySet="Lop">
+          <ScalarProperty Name="MaNganh" ColumnName="MaNganh" />
+          <ScalarProperty Name="TenLop" ColumnName="TenLop" />
+          <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nganhs">
+      <EntityTypeMapping TypeName="VSHModel.Nganh">
+        <MappingFragment StoreEntitySet="Nganh">
+          <ScalarProperty Name="TenNganh" ColumnName="TenNganh" />
+          <ScalarProperty Name="MaNganh" ColumnName="MaNganh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhanViens">
+      <EntityTypeMapping TypeName="VSHModel.NhanVien">
+        <MappingFragment StoreEntitySet="NhanVien">
+          <ScalarProperty Name="TenTK" ColumnName="TenTK" />
+          <ScalarProperty Name="MaPB" ColumnName="MaPB" />
+          <ScalarProperty Name="MaCV" ColumnName="MaCV" />
+          <ScalarProperty Name="MaXa" ColumnName="MaXa" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="Luong" ColumnName="Luong" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhongBans">
+      <EntityTypeMapping TypeName="VSHModel.PhongBan">
+        <MappingFragment StoreEntitySet="PhongBan">
+          <ScalarProperty Name="TenPhongBan" ColumnName="TenPhongBan" />
+          <ScalarProperty Name="MaPhongBan" ColumnName="MaPhongBan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SanPhams">
+      <EntityTypeMapping TypeName="VSHModel.SanPham">
+        <MappingFragment StoreEntitySet="SanPham">
+          <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+          <ScalarProperty Name="SoLuongTon" ColumnName="SoLuongTon" />
+          <ScalarProperty Name="GiaBan" ColumnName="GiaBan" />
+          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+          <ScalarProperty Name="ThongTinGen" ColumnName="ThongTinGen" />
+          <ScalarProperty Name="SuChongLaiKhuayDong" ColumnName="SuChongLaiKhuayDong" />
+          <ScalarProperty Name="TinhTrangCuaChung" ColumnName="TinhTrangCuaChung" />
+          <ScalarProperty Name="SanSinhDocTo" ColumnName="SanSinhDocTo" />
+          <ScalarProperty Name="DieuKienNuoiCoBan" ColumnName="DieuKienNuoiCoBan" />
+          <ScalarProperty Name="MoiTruongThuMau" ColumnName="MoiTruongThuMau" />
+          <ScalarProperty Name="QuocGia" ColumnName="QuocGia" />
+          <ScalarProperty Name="ChauLuc" ColumnName="ChauLuc" />
+          <ScalarProperty Name="ViTriThuMau" ColumnName="ViTriThuMau" />
+          <ScalarProperty Name="NgayKiGuiMau" ColumnName="NgayKiGuiMau" />
+          <ScalarProperty Name="NguoiDinhDanh" ColumnName="NguoiDinhDanh" />
+          <ScalarProperty Name="NamPhanLap" ColumnName="NamPhanLap" />
+          <ScalarProperty Name="NguoiPhanLap" ColumnName="NguoiPhanLap" />
+          <ScalarProperty Name="ToChucCoThe" ColumnName="ToChucCoThe" />
+          <ScalarProperty Name="KichThuoc" ColumnName="KichThuoc" />
+          <ScalarProperty Name="TenThuongGoi" ColumnName="TenThuongGoi" />
+          <ScalarProperty Name="TenBanDau" ColumnName="TenBanDau" />
+          <ScalarProperty Name="DongDanh" ColumnName="DongDanh" />
+          <ScalarProperty Name="TenKhoaHoc" ColumnName="TenKhoaHoc" />
+          <ScalarProperty Name="MaChung" ColumnName="MaChung" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaiKhoans">
+      <EntityTypeMapping TypeName="VSHModel.TaiKhoan">
+        <MappingFragment StoreEntitySet="TaiKhoan">
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tinhs">
+      <EntityTypeMapping TypeName="VSHModel.Tinh">
+        <MappingFragment StoreEntitySet="Tinh">
+          <ScalarProperty Name="TenTinh" ColumnName="TenTinh" />
+          <ScalarProperty Name="MaTinh" ColumnName="MaTinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Xas">
+      <EntityTypeMapping TypeName="VSHModel.Xa">
+        <MappingFragment StoreEntitySet="Xa">
+          <ScalarProperty Name="MaH" ColumnName="MaH" />
+          <ScalarProperty Name="TenXa" ColumnName="TenXa" />
+          <ScalarProperty Name="MaXa" ColumnName="MaXa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhachHangTaiKhoan1">
+      <EntityTypeMapping TypeName="VSHModel.KhachHangTaiKhoan1">
+        <MappingFragment StoreEntitySet="KhachHangTaiKhoan1">
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
+          <ScalarProperty Name="TenTK" ColumnName="TenTK" />
+          <ScalarProperty Name="MaXa" ColumnName="MaXa" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="viewHoSoKHs">
+      <EntityTypeMapping TypeName="VSHModel.viewHoSoKH">
+        <MappingFragment StoreEntitySet="viewHoSoKH">
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
+          <ScalarProperty Name="TenTinh" ColumnName="TenTinh" />
+          <ScalarProperty Name="TenHuyen" ColumnName="TenHuyen" />
+          <ScalarProperty Name="TenXa" ColumnName="TenXa" />
+          <ScalarProperty Name="TenTK" ColumnName="TenTK" />
+          <ScalarProperty Name="MaXa" ColumnName="MaXa" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PhanCong" TypeName="VSHModel.PhanCong" StoreEntitySet="PhanCong">
+      <EndProperty Name="NhanVien">
+        <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+      </EndProperty>
+      <EndProperty Name="DuAn">
+        <ScalarProperty Name="MaDuAn" ColumnName="MaDA" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="spHuyenTheoTinh" FunctionName="VSHModel.Store.spHuyenTheoTinh">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VSHModel.spHuyenTheoTinh_Result">
+          <ScalarProperty Name="MaHuyen" ColumnName="MaHuyen" />
+          <ScalarProperty Name="TenHuyen" ColumnName="TenHuyen" />
+          <ScalarProperty Name="MaT" ColumnName="MaT" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spXaTheoHuyen" FunctionName="VSHModel.Store.spXaTheoHuyen">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VSHModel.spXaTheoHuyen_Result">
+          <ScalarProperty Name="MaXa" ColumnName="MaXa" />
+          <ScalarProperty Name="TenXa" ColumnName="TenXa" />
+          <ScalarProperty Name="MaH" ColumnName="MaH" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spCapNhatMatKhau" FunctionName="VSHModel.Store.spCapNhatMatKhau" />
+    <FunctionImportMapping FunctionImportName="spShowHoSoKH" FunctionName="VSHModel.Store.spShowHoSoKH">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VSHModel.spShowHoSoKH_Result">
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="MaXa" ColumnName="MaXa" />
+          <ScalarProperty Name="TenTK" ColumnName="TenTK" />
+          <ScalarProperty Name="TenXa" ColumnName="TenXa" />
+          <ScalarProperty Name="TenHuyen" ColumnName="TenHuyen" />
+          <ScalarProperty Name="TenTinh" ColumnName="TenTinh" />
+          <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spSanPhamDaDat" FunctionName="VSHModel.Store.spSanPhamDaDat">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VSHModel.spSanPhamDaDat_Result">
+          <ScalarProperty Name="MaHD" ColumnName="MaHD" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="TenKhoaHoc" ColumnName="TenKhoaHoc" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="GiaBan" ColumnName="GiaBan" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spTimSPKhongMa" FunctionName="VSHModel.Store.spTimSPKhongMa">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VSHModel.spTimSPKhongMa_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MaChung" ColumnName="MaChung" />
+          <ScalarProperty Name="TenKhoaHoc" ColumnName="TenKhoaHoc" />
+          <ScalarProperty Name="SoLuongTon" ColumnName="SoLuongTon" />
+          <ScalarProperty Name="GiaBan" ColumnName="GiaBan" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="viewSqlLogins">
+      <EntityTypeMapping TypeName="VSHModel.viewSqlLogin">
+        <MappingFragment StoreEntitySet="viewSqlLogins">
+          <ScalarProperty Name="password_hash" ColumnName="password_hash" />
+          <ScalarProperty Name="is_expiration_checked" ColumnName="is_expiration_checked" />
+          <ScalarProperty Name="is_policy_checked" ColumnName="is_policy_checked" />
+          <ScalarProperty Name="credential_id" ColumnName="credential_id" />
+          <ScalarProperty Name="default_language_name" ColumnName="default_language_name" />
+          <ScalarProperty Name="default_database_name" ColumnName="default_database_name" />
+          <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="is_disabled" ColumnName="is_disabled" />
+          <ScalarProperty Name="type_desc" ColumnName="type_desc" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="sid" ColumnName="sid" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spKiemTraThongTinDangNhap" FunctionName="VSHModel.Store.spKiemTraThongTinDangNhap" />
+    <FunctionImportMapping FunctionImportName="spKiemTraThongTinDangNhap1" FunctionName="VSHModel.Store.spKiemTraThongTinDangNhap1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VSHModel.spKiemTraThongTinDangNhap1_Result">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="sid" ColumnName="sid" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="type_desc" ColumnName="type_desc" />
+          <ScalarProperty Name="is_disabled" ColumnName="is_disabled" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+          <ScalarProperty Name="default_database_name" ColumnName="default_database_name" />
+          <ScalarProperty Name="default_language_name" ColumnName="default_language_name" />
+          <ScalarProperty Name="credential_id" ColumnName="credential_id" />
+          <ScalarProperty Name="is_policy_checked" ColumnName="is_policy_checked" />
+          <ScalarProperty Name="is_expiration_checked" ColumnName="is_expiration_checked" />
+          <ScalarProperty Name="password_hash" ColumnName="password_hash" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="viewThongTinNhanViens">
+      <EntityTypeMapping TypeName="VSHModel.viewThongTinNhanVien">
+        <MappingFragment StoreEntitySet="viewThongTinNhanVien">
+          <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
+          <ScalarProperty Name="TenTinh" ColumnName="TenTinh" />
+          <ScalarProperty Name="TenHuyen" ColumnName="TenHuyen" />
+          <ScalarProperty Name="TenXa" ColumnName="TenXa" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="TenPhongBan" ColumnName="TenPhongBan" />
+          <ScalarProperty Name="TenChucVu" ColumnName="TenChucVu" />
+          <ScalarProperty Name="TenTK" ColumnName="TenTK" />
+          <ScalarProperty Name="MaPB" ColumnName="MaPB" />
+          <ScalarProperty Name="MaCV" ColumnName="MaCV" />
+          <ScalarProperty Name="MaXa" ColumnName="MaXa" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="Luong" ColumnName="Luong" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spThemNhanVien" FunctionName="VSHModel.Store.spThemNhanVien" />
+    <FunctionImportMapping FunctionImportName="spDuyetDon" FunctionName="VSHModel.Store.spDuyetDon" />
+    <FunctionImportMapping FunctionImportName="spDuyetSP" FunctionName="VSHModel.Store.spDuyetSP" />
+  </EntityContainerMapping>
+</Mapping>

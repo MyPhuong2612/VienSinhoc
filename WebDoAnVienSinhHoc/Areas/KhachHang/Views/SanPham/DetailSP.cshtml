@@ -1,0 +1,124 @@
+﻿@model IEnumerable<WebDoAnVienSinhHoc.Models.SanPham>
+
+@{
+    ViewBag.Title = "Chi Tiết Sản Phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        word-break: break-word;
+    }
+</style>
+
+<h2>Chi Tiết Sản Phẩm</h2>
+
+<table class="table" style="width:930px">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td colspan="2">
+                <a href="~/KhachHang/SanPham/ListSP" class="btn btn-info" role="button"> < Sản phẩm</a>
+                <button type="button" class="btn btn-success">@Html.ActionLink("Đặt hàng", "ThemVaoGioHang", "GioHang", new { id = item.ID }, new { @style = "color:white;" })</button>
+            </td>
+        </tr>
+        <tr>
+            <th>Thuộc lớp</th>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lop.TenLop)
+            </td>
+        </tr>
+        <tr>
+            <th style="width:30%">Mã chủng</th>
+            <td style="width:70%">@Html.DisplayFor(modelItem => item.MaChung)</td>
+        </tr>
+        <tr>
+            <th>Tên khoa học</th>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenKhoaHoc)
+            </td>
+        </tr>
+        <tr>
+            <th>Đồng danh</th>
+            <td>
+                @Html.DisplayFor(modelItem => item.DongDanh)
+            </td>
+        </tr>
+        <tr>
+            <th>Tên ban đầu</th>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenBanDau)
+            </td>
+        </tr>
+        <tr>
+            <th>Tên thường gọi</th>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenThuongGoi)
+            </td>
+        </tr>
+        <tr>
+            <th>Kích thước</th>
+            <td>
+                @Html.DisplayFor(modelItem => item.KichThuoc)
+            </td>
+        </tr>
+        <tr>
+            <th>Tổ chức cơ thể</th>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToChucCoThe)
+            </td>
+        </tr>
+        <tr>
+            <th>Điều kiện nuôi cơ bản</th>
+            <td>
+                @Html.DisplayFor(modelItem => item.DieuKienNuoiCoBan)
+            </td>
+        </tr>
+        <tr>
+            <th>Độc tố</th>
+            <td>
+                @Html.DisplayFor(modelItem => item.SanSinhDocTo)
+            </td>
+        </tr>
+        <tr>
+            <th>Tình trạng</th>
+            <td>
+                @Html.DisplayFor(modelItem => item.TinhTrangCuaChung)
+            </td>
+        </tr>
+        <tr>
+            <th>Sự chống lại khuấy động</th>
+            <td>
+                @Html.DisplayFor(modelItem => item.SuChongLaiKhuayDong)
+            </td>
+        </tr>
+        <tr>
+            <th>Thông tin Gen</th>
+            <td style='word-wrap:break-word;'>
+                @Html.DisplayFor(modelItem => item.ThongTinGen)
+            </td>
+        </tr>
+        <tr>
+            <th>Hình ảnh</th>
+            <td align="center">
+                <img src="~/fonts/images/SanPham/Tetranephris brasiliensis.png" style="width:336px;" />
+            </td>
+        </tr>
+        <tr>
+            <th>Giá bán</th>
+            <td>
+                @string.Format("{0:#,0}", @item.GiaBan) VND
+            </td>
+        </tr>
+        <tr>
+            <th>Số lượng tồn</th>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuongTon)
+            </td>
+        </tr>
+
+    }
+
+</table>

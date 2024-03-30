@@ -1,0 +1,572 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>IRT - ĐẠI HỌC CÔNG THƯƠNG</title>
+    <link href="~/template/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/template/css/metisMenu.min.css" rel="stylesheet" />
+    <link href="~/template/css/timeline.css" rel="stylesheet" />
+    <link href="~/template/css/startmin.css" rel="stylesheet" />
+    <link href="~/template/css/morris.css" rel="stylesheet" />
+    <link href="~/template/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    @{
+        //NẾU ĐĂNG NHẬP ĐƯỢC
+        if (HttpContext.Current.Session["tenTaiKhoan"] != null)
+        {
+            var user = (WebDoAnVienSinhHoc.Models.viewThongTinNhanVien)HttpContext.Current.Session["tenTaiKhoan"];
+            //NẾU LÀ NV TỔ CHỨC
+            if (user.MaPB == 1)
+            {
+
+            }
+            if (user.MaPB == 2)
+            {
+                <div id="wrapper">
+                    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="index.html">I R T</a>
+                        </div>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <ul class="nav navbar-nav navbar-left navbar-top-links">
+                            <li><a href="#"><i class="fa fa-home fa-fw"></i> TRANG CHỦ</a></li>
+                        </ul>
+                        <ul class="nav navbar-right navbar-top-links">
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user fa-fw"></i>
+                                    @{
+                                        if (HttpContext.Current.Session["tenTaiKhoan"] != null)
+                                        {
+                                            <span>Xin chào @user.HoTen</span>
+                                        }
+                                    }
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li>
+                                        <a href="#"><i class="fa fa-user fa-fw"></i> Thông tin cá nhân</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="~/Home/DangXuat"><i class="fa fa-sign-out fa-fw"></i> Đăng xuất</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    <aside class="sidebar navbar-default" role="navigation">
+                        <div class="sidebar-nav navbar-collapse">
+                            <ul class="nav" id="side-menu">
+                                <li class="sidebar-search">
+                                    <div class="input-group custom-search-form">
+                                        <input type="text" class="form-control" placeholder="Search...">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Quản lý nhân viên<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-second-level">
+                                        <li>
+                                            <a href="~/NhanVien/NVNhanSu/DanhSachNhanVienKinhDoanh">Phòng kinh doanh</a>
+                                        </li>
+                                        <li>
+                                            <a href="/NhanVien/NVNhanSu/DanhSachNhanVienNghienCuu">Phòng nghiên cứu</a>
+                                        </li>
+                                        <li>
+                                            <a href="/NhanVien/NVNhanSu/DanhSachNhanVienNhanSu">Phòng nhân sự</a>
+                                        </li>
+                                        <li>
+                                            <a href="/NhanVien/NVNhanSu/DanhSachNhanVienKhoaHoc">Phòng quản lý khoa học</a>
+                                        </li>
+                                        <li>
+                                            <a href="/NhanVien/NVNhanSu/DanhSachNhanVienToChuc">Phòng tổ chức đào tạo</a>
+                                        </li>
+                                        <li>
+                                            <a href="/NhanVien/NVNhanSu/ThemNhanVien">Thêm Nhân viên</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                @*<li>
+                                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Quản lý Sản phẩm<span class="fa arrow"></span></a>
+                                        <ul class="nav nav-second-level">
+                                            <li>
+                                                <a href="/Admin/QLSanPham/SanPhamThuongMai">Sản phẩm thương mại</a>
+                                            </li>
+                                            <li>
+                                                <a href="/Admin/QLSanPham/SanPhamChuaMa">Sản phẩm cần cấp mã</a>
+                                            </li>
+                                            <li>
+                                                <a href="/Admin/QLSanPham/TaoSanPham">Thêm sản phẩm</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                                        <ul class="nav nav-second-level">
+                                            <li>
+                                                <a href="#">Second Level Item</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Second Level Item</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Third Level <span class="fa arrow"></span></a>
+                                                <ul class="nav nav-third-level">
+                                                    <li>
+                                                        <a href="#">Third Level Item</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Third Level Item</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Third Level Item</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Third Level Item</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
+                                        <ul class="nav nav-second-level">
+                                            <li>
+                                                <a href="blank.html">Blank Page</a>
+                                            </li>
+                                            <li>
+                                                <a href="login.html">Login Page</a>
+                                            </li>
+                                        </ul>
+                                    </li>*@
+                            </ul>
+                        </div>
+                    </aside>
+                    <div id="page-wrapper">
+                        <div class="container-fluid">
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+            }
+            //NẾU LÀ NV KHOA HỌC
+            if (user.MaPB == 3)
+            {
+                <div id="wrapper">
+                    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="index.html">I R T</a>
+                        </div>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <ul class="nav navbar-nav navbar-left navbar-top-links">
+                            <li><a href="~/NhanVien/NVNghienCuu"><i class="fa fa-home fa-fw"></i> TRANG CHỦ</a></li>
+                        </ul>
+                        <ul class="nav navbar-right navbar-top-links">
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user fa-fw"></i>
+                                    @{
+                                        if (HttpContext.Current.Session["tenTaiKhoan"] != null)
+                                        {
+                                            <span>Xin chào @user.HoTen</span>
+                                        }
+                                    }
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li>
+                                        <a href="#"><i class="fa fa-user fa-fw"></i> Thông tin cá nhân</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="~/Home/DangXuat"><i class="fa fa-sign-out fa-fw"></i> Đăng xuất</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    <aside class="sidebar navbar-default" role="navigation">
+                        <div class="sidebar-nav navbar-collapse">
+                            <ul class="nav" id="side-menu">
+                                <li class="sidebar-search">
+                                    <div class="input-group custom-search-form">
+                                        <input type="text" class="form-control" placeholder="Search...">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Quản lý nhân viên<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-second-level">
+                                        <li>
+                                            <a href="~/NhanVien/NVNhanSu/DanhSachNhanVienNghienCuu">Danh sách Nhân viên</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Quản lý sản phẩm<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-second-level">
+                                        <li>
+                                            <a href="~/NhanVien/NVKhoaHoc/SanPhamThuongMai">Danh sách sản phẩm</a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav nav-second-level">
+                                        <li>
+                                            <a href="~/NhanVien/NVKhoaHoc/SanPhamChuaMa">Sản phẩm chưa mã</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </aside>
+                    <div id="page-wrapper">
+                        <div class="container-fluid">
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+            }
+            //NẾU LÀ NV KINH DOANH
+            if (user.MaPB == 4)
+            {
+                <div id="wrapper">
+                    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="index.html">I R T</a>
+                        </div>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <ul class="nav navbar-nav navbar-left navbar-top-links">
+                            <li><a href="~/NhanVien/NVNghienCuu"><i class="fa fa-home fa-fw"></i> TRANG CHỦ</a></li>
+                        </ul>
+                        <ul class="nav navbar-right navbar-top-links">
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user fa-fw"></i>
+                                    @{
+                                        if (HttpContext.Current.Session["tenTaiKhoan"] != null)
+                                        {
+                                            <span>Xin chào @user.HoTen</span>
+                                        }
+                                    }
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li>
+                                        <a href="#"><i class="fa fa-user fa-fw"></i> Thông tin cá nhân</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="~/Home/DangXuat"><i class="fa fa-sign-out fa-fw"></i> Đăng xuất</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    <aside class="sidebar navbar-default" role="navigation">
+                        <div class="sidebar-nav navbar-collapse">
+                            <ul class="nav" id="side-menu">
+                                <li class="sidebar-search">
+                                    <div class="input-group custom-search-form">
+                                        <input type="text" class="form-control" placeholder="Search...">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Quản lý nhân viên<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-second-level">
+                                        <li>
+                                            <a href="~/NhanVien/NVNhanSu/DanhSachNhanVienNghienCuu">Danh sách Nhân viên</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Quản lý đơn hàng<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-second-level">
+                                        <li>
+                                            <a href="~/NhanVien/NVKinhDoanh/XemDonHang">Danh sách đơn hàng Khách đặt</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <a href="~/NhanVien/NVKinhDoanh/DSKhachHang"><i class="fa fa-bar-chart-o fa-fw"></i>Danh sách khách hàng<span class="fa arrow"></span></a>
+                                    
+                                </li>
+
+                            </ul>
+                        </div>
+                    </aside>
+                    <div id="page-wrapper">
+                        <div class="container-fluid">
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+            }
+            //NẾU LÀ NV NGHIÊN CỨU
+            if (user.MaPB == 5)
+            {
+                <div id="wrapper">
+                    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="index.html">I R T</a>
+                        </div>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <ul class="nav navbar-nav navbar-left navbar-top-links">
+                            <li><a href="~/NhanVien/NVNghienCuu"><i class="fa fa-home fa-fw"></i> TRANG CHỦ</a></li>
+                        </ul>
+                        <ul class="nav navbar-right navbar-top-links">
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user fa-fw"></i>
+                                    @{
+                                        if (HttpContext.Current.Session["tenTaiKhoan"] != null)
+                                        {
+                                            <span>Xin chào @user.HoTen</span>
+                                        }
+                                    }
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li>
+                                        <a href="#"><i class="fa fa-user fa-fw"></i> Thông tin cá nhân</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="~/Home/DangXuat"><i class="fa fa-sign-out fa-fw"></i> Đăng xuất</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    <aside class="sidebar navbar-default" role="navigation">
+                        <div class="sidebar-nav navbar-collapse">
+                            <ul class="nav" id="side-menu">
+                                <li class="sidebar-search">
+                                    <div class="input-group custom-search-form">
+                                        <input type="text" class="form-control" placeholder="Search...">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Quản lý nhân viên<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-second-level">
+                                        <li>
+                                            <a href="~/NhanVien/NVNhanSu/DanhSachNhanVienNghienCuu">Danh sách Nhân viên</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Quản lý sản phẩm<span class="fa arrow"></span></a>
+                                    <ul class="nav nav-second-level">
+                                        <li>
+                                            <a href="~/NhanVien/NVNghienCuu/DSSanPham">Danh sách Sản phẩm</a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav nav-second-level">
+                                        <li>
+                                            <a href="~/NhanVien/NVNghienCuu/DSKhongMaChung">Sản phẩm chưa cấp mã chủng</a>
+                                        </li>
+                                    </ul>
+                                    <ul class="nav nav-second-level">
+                                        <li>
+                                            <a href="~/NhanVien/NVNghienCuu/TaoSanPham">Thêm sản phẩm</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </aside>
+                    <div id="page-wrapper">
+                        <div class="container-fluid">
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+            }
+
+        }
+
+        else //NẾU ĐĂNG XUẤT
+        {
+            <div id="wrapper">
+                <!--B Navigation -->
+                <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="index.html">I R T</a>
+                    </div>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <ul class="nav navbar-nav navbar-left navbar-top-links">
+                        <li><a href="#"><i class="fa fa-home fa-fw"></i> TRANG CHỦ</a></li>
+                    </ul>
+                    <ul class="nav navbar-right navbar-top-links">
+                        <li><a href="~/Home/DangXuat"><i class="fa fa-home fa-fw"></i> ĐĂNG NHẬP</a></li>
+                    </ul>
+                </nav>
+                <aside class="sidebar navbar-default" role="navigation">
+                    <div class="sidebar-nav navbar-collapse">
+                        <ul class="nav" id="side-menu">
+                            <li class="sidebar-search">
+                                <div class="input-group custom-search-form">
+                                    <input type="text" class="form-control" placeholder="Search...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="button">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </li>
+
+                            <li>
+                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Quản lý nhân viên<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="/Admin/NhanVien/DanhSachNhanVienKinhDoanh">Phòng kinh doanh</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Admin/NhanVien/DanhSachNhanVienNghienCuu">Phòng nghiên cứu</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Admin/NhanVien/DanhSachNhanVienNhanSu">Phòng nhân sự</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Admin/NhanVien/DanhSachNhanVienKhoaHoc">Phòng quản lý khoa học</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Admin/NhanVien/DanhSachNhanVienToChuc">Phòng tổ chức đào tạo</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="#"><i class="fa fa-wrench fa-fw"></i> Quản lý Sản phẩm<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="/Admin/QLSanPham/SanPhamThuongMai">Sản phẩm thương mại</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Admin/QLSanPham/SanPhamChuaMa">Sản phẩm cần cấp mã</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Admin/QLSanPham/TaoSanPham">Thêm sản phẩm</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="#">Second Level Item</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Second Level Item</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Third Level <span class="fa arrow"></span></a>
+                                        <ul class="nav nav-third-level">
+                                            <li>
+                                                <a href="#">Third Level Item</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Third Level Item</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Third Level Item</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Third Level Item</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="blank.html">Blank Page</a>
+                                    </li>
+                                    <li>
+                                        <a href="login.html">Login Page</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+                <div id="page-wrapper">
+                    <div class="container-fluid">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+
+
+
+    <!--B Script -->
+    <script src="~/template/js/jquery.min.js"></script>
+    <script src="~/template/js/bootstrap.min.js"></script>
+    <script src="~/template/js/metisMenu.min.js"></script>
+    <script src="~/template/js/raphael.min.js"></script>
+    <script src="~/template/js/startmin.js"></script>
+    <script src="~/Content/images/ScriptUploadSaveImage.js"></script>
+    <!--E Script -->
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="20614cd32c99499f839be2c55083f7d9" Name="Diagram1">
+        <EntityTypeShape EntityType="VSHModel.ChucVu" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="VSHModel.CTHoaDon" Width="1.5" PointX="10.5" PointY="4.375" />
+        <EntityTypeShape EntityType="VSHModel.DoiTac" Width="1.5" PointX="1.5" PointY="15.875" />
+        <EntityTypeShape EntityType="VSHModel.DuAn" Width="1.5" PointX="3.75" PointY="15.625" />
+        <EntityTypeShape EntityType="VSHModel.HoaDon" Width="1.5" PointX="8.25" PointY="4.25" />
+        <EntityTypeShape EntityType="VSHModel.Huyen" Width="1.5" PointX="1.5" PointY="8.5" />
+        <EntityTypeShape EntityType="VSHModel.KhachHang" Width="1.5" PointX="3" PointY="4" />
+        <EntityTypeShape EntityType="VSHModel.Lop" Width="1.5" PointX="6" PointY="21.5" />
+        <EntityTypeShape EntityType="VSHModel.Nganh" Width="1.5" PointX="3.75" PointY="21.625" />
+        <EntityTypeShape EntityType="VSHModel.NhanVien" Width="1.5" PointX="6" PointY="3.25" />
+        <EntityTypeShape EntityType="VSHModel.PhongBan" Width="1.5" PointX="3.75" PointY="8.125" />
+        <EntityTypeShape EntityType="VSHModel.SanPham" Width="1.5" PointX="8.25" PointY="19.375" />
+        <EntityTypeShape EntityType="VSHModel.TaiKhoan" Width="1.5" PointX="0.75" PointY="4.625" />
+        <EntityTypeShape EntityType="VSHModel.Tinh" Width="1.5" PointX="1.5" PointY="11.625" />
+        <EntityTypeShape EntityType="VSHModel.Xa" Width="1.5" PointX="0.75" PointY="1.375" />
+        <EntityTypeShape EntityType="VSHModel.KhachHangTaiKhoan1" Width="1.5" PointX="5.75" PointY="8.875" />
+        <EntityTypeShape EntityType="VSHModel.viewHoSoKH" Width="1.5" PointX="8.75" PointY="7.875" />
+        <AssociationConnector Association="VSHModel.FK_NhanVienChucVu" />
+        <AssociationConnector Association="VSHModel.FK_CTHoaDonHD" />
+        <AssociationConnector Association="VSHModel.FK_CTHoaDonSP" />
+        <AssociationConnector Association="VSHModel.FK_DuAnDoiTac" />
+        <AssociationConnector Association="VSHModel.FK_DuAnPhongBan" />
+        <AssociationConnector Association="VSHModel.FK_SanPhamKhachHang" />
+        <AssociationConnector Association="VSHModel.FK_SanPhamNhanVien" />
+        <AssociationConnector Association="VSHModel.FK_HuyenTinh" />
+        <AssociationConnector Association="VSHModel.FK_XaHuyen" />
+        <AssociationConnector Association="VSHModel.FK_KhachHangTaiKhoan" />
+        <AssociationConnector Association="VSHModel.FK_KhachHangXa" />
+        <AssociationConnector Association="VSHModel.FK_LopNganh" />
+        <AssociationConnector Association="VSHModel.FK_SanPhamLop" />
+        <AssociationConnector Association="VSHModel.FK_NhanVienPhongBan" />
+        <AssociationConnector Association="VSHModel.FK_NhanVienTaiKhoan" />
+        <AssociationConnector Association="VSHModel.FK_NhanVienXa" />
+        <AssociationConnector Association="VSHModel.PhanCong" />
+        <EntityTypeShape EntityType="VSHModel.viewSqlLogin" Width="1.5" PointX="11.375" PointY="7.75" />
+        <EntityTypeShape EntityType="VSHModel.viewThongTinNhanVien" Width="1.5" PointX="8.375" PointY="12.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

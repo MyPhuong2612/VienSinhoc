@@ -1,0 +1,72 @@
+﻿@model IEnumerable<WebDoAnVienSinhHoc.Models.spShowHoSoKH_Result>
+
+@{
+    ViewBag.Title = "HoSoKH";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thông tin Khách hàng</h2>
+
+<table class="table" style="width:930px">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>Tên tài khoản</th>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenTaiKhoan)
+            </td>
+        </tr>
+        <tr>
+            <th>Mật khẩu</th>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatKhau)
+            </td>
+        </tr>
+        <tr>
+            <th>Họ tên</th>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoTen)
+            </td>
+        </tr>
+        <tr>
+            <th style="width:30%">Ngày sinh</th>
+            <td style="width:70%">@Convert.ToDateTime(item.NgaySinh).ToString("dd/MM/yyyy")</td>
+        </tr>
+        <tr>
+            <th>Giới tính</th>
+            <td>
+                @Html.DisplayFor(modelItem => item.GioiTinh)
+            </td>
+        </tr>
+        <tr>
+            <th>Địa chỉ</th>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiaChi)
+            </td>
+        </tr>
+        <tr>
+            <th>Xã</th>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenXa)
+            </td>
+        </tr>
+        <tr>
+            <th>Huyện / Phường</th>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenHuyen)
+            </td>
+        </tr>
+        <tr>
+            <th>Tỉnh / TP</th>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenTinh)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("Chỉnh sửa", "Edit", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>

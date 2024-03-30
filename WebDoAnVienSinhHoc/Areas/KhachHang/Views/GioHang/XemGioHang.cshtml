@@ -1,0 +1,76 @@
+﻿@model WebDoAnVienSinhHoc.Areas.KhachHang.Models.Cart
+
+@{
+    ViewBag.Title = "XemGioHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Giỏ hàng</h2>
+<a href="~/KhachHang/SanPham/ListSP" class="btn btn-info" role="button"> < Sản phẩm</a>
+
+
+@if (Model != null)
+{
+<table class="table">
+    <thead>
+        <tr>
+            <th>Mã chủng</th>
+            <th>Tên khoa học</th>
+            <th>Hình ảnh</th>
+            <th>Số lượng</th>
+            <th>Giá bán</th>
+            <th>Đơn giá</th>
+            <th>Hủy đơn</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            double donGia = Convert.ToDouble(item.shoppingSanPham.GiaBan.Value * item.shoppingSoLuong);
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => item.shoppingSanPham.MaChung)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.shoppingSanPham.TenKhoaHoc)
+                </td>
+                <td>
+                    <img src="~/fonts/images/SanPham/Tetranephris brasiliensis.png" style="width:100px;" />
+                    @*<img src="@Url.Content(item.shoppingSanPham.HinhAnh)" style="width:100px;" />*@
+                </td>
+                <td>
+                    @using (Html.BeginForm("CapNhatSoLuongGioHang", "GioHang"))
+                    {
+                        <input type="hidden" value="@item.shoppingSanPham.ID" name="idSanPham" />
+                        <input type="number" value="@item.shoppingSoLuong" name="soLuong" />
+                        <input type="submit" value="Cập nhật số lượng" />
+                    }
+                </td>
+                <td>
+                    @string.Format("{0:#,0}", @item.shoppingSanPham.GiaBan) VND
+                </td>
+                <td>
+                    @string.Format("{0:#,0}", @donGia) VND
+                </td>
+                <td>
+                    <a href="~/KhachHang/GioHang/XoaMotSanPham/@item.shoppingSanPham.ID"><span class="glyphicon glyphicon-remove"></span></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Tổng tiền</th>
+            <td colspan="5" style="color:red">@string.Format("{0:#,0}", @Model.tongDonGia()) VND</td>
+            <td>
+                @using (Html.BeginForm("ThanhToan", "GioHang"))
+                {
+                    <input type="submit" value="Thanh toán" class="btn btn-success" />
+                }
+            </td>
+        </tr>
+    </tfoot>
+
+</table>
+
+}

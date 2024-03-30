@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    @{
+        if (HttpContext.Current.Session["tenTaiKhoan"] == null)
+        {
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <nav class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="~/Home/Index">IRT</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="~/Home/Index">TRANG CHỦ</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">SẢN PHẨM <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="~/KhachHang/SanPham/ListSP">Sản phẩm Thương mại</a></li>
+                            </ul>
+                        </li>
+                        @*<li><a href="#">Page 2</a></li>*@
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="~/KhachHang/GioHang/XemGioHang">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                                Giỏ hàng @Html.Action("BagGioHang", "GioHang", new { area = "KhachHang" })
+                            </a>
+                        </li>
+                        <li><a href="~/KhachHang/TaiKhoan/DangKy"><span class="glyphicon glyphicon-user"></span> Đăng ký</a></li>
+
+                        <li><a href="~/Home/DangNhap">Đăng nhập</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="container body-content">
+                @RenderBody()
+                <hr />
+                <footer>
+                    <p>&copy; @DateTime.Now.Year - Đồ Án Chuyên Ngành</p>
+                </footer>
+            </div>
+
+        }
+        else
+        {
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <nav class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">VSH</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">TRANG CHỦ</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">SẢN PHẨM <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="~/KhachHang/SanPham/ListSP">Sản phẩm thương mại</a></li>
+                                <li><a href="~/KhachHang/SanPham/SanPhamDaDat">Sản phẩm đã đặt</a></li>
+                            </ul>
+                        </li>
+                        @*<li><a href="#">Page 2</a></li>*@
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="~/KhachHang/GioHang/XemGioHang">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                                Giỏ hàng @Html.Action("BagGioHang", "GioHang", new { area = "KhachHang" })
+                            </a>
+                        </li>
+
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="~/KhachHang/TaiKhoan/DangNhap">
+
+                                @{
+                                    if (HttpContext.Current.Session["tenTaiKhoan"] == null)
+                                    {
+                                        <span>Đăng nhập</span>
+                                    }
+                                    else
+                                    {
+                                        var user = (WebDoAnVienSinhHoc.Models.KhachHangTaiKhoan)HttpContext.Current.Session["tenTaiKhoan"];
+                                        <span>Xin chào @user.HoTen</span>
+                                    }
+                                }
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="~/KhachHang/TaiKhoan/HoSoKH">Thông tin Khách hàng</a></li>
+
+                                @{
+                                    if (HttpContext.Current.Session["tenTaiKhoan"] == null)
+                                    {
+                                        <li><a href="~/KhachHang/TaiKhoan/DangNhap">Đăng nhập</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="~/KhachHang/TaiKhoan/DangXuat">Đăng xuất</a></li>
+                                    }
+                                }
+
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="container body-content">
+                @RenderBody()
+                <hr />
+                <footer>
+                    <p>&copy; @DateTime.Now.Year - Đồ Án Chuyên Ngành</p>
+                </footer>
+            </div>
+
+        }
+    }
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+

@@ -1,0 +1,101 @@
+﻿@model IEnumerable<WebDoAnVienSinhHoc.Models.NhanVien>
+
+@{
+    ViewBag.Title = "NhanVienNghienCuu";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Nhân viên Nghiên cứu</h2>
+
+<p>
+    @Html.ActionLink("Thêm nhân viên", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã nhân viên
+        </th>
+        <th>
+            Họ tên
+        </th>
+        <th>
+            Ngày sinh
+        </th>
+        <th>
+            Giới tính
+        </th>
+        @*<th>
+                Lương
+            </th>
+            <th>
+                SĐT
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Địa chỉ
+            </th>
+            <th>
+                Chức vụ
+            </th>
+            <th>
+                Phòng ban
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaiKhoan.MatKhau)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Xa.TenXa)
+            </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaNV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoTen)
+            </td>
+            <td>
+                @Convert.ToDateTime(item.NgaySinh).ToString("dd/MM/yyyy")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GioiTinh)
+            </td>
+            @*<td>
+                    @string.Format("{0:#,0}", @item.Luong) VND
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SDT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiaChi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ChucVu.TenChucVu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhongBan.TenPhongBan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TaiKhoan.MatKhau)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Xa.TenXa)
+                </td>*@
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaNV }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaNV }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaNV })
+            </td>
+        </tr>
+    }
+
+</table>

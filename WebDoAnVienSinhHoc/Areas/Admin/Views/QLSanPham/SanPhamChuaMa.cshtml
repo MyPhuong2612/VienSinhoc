@@ -1,0 +1,62 @@
+﻿@model IEnumerable<WebDoAnVienSinhHoc.Models.spTimSPKhongMa_Result>
+
+@{
+    ViewBag.Title = "SanPhamThuongMai";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Sản Phẩm chưa cấp mã</h2>
+
+
+
+<form class="navbar-form navbar-left" method="get">
+    <div class="form-group">
+        <input type="text" name="search" class="form-control" placeholder="Thông tin sản phẩm">
+    </div>
+    <button type="submit" class="btn btn-default">Tìm kiếm</button>
+</form>
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            Mã chủng
+        </th>
+        <th>
+            Tên khoa học
+        </th>
+        <th>
+            Số lượng tồn
+        </th>
+        <th>
+            Giá bán
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaChung)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenKhoaHoc)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuongTon)
+            </td>
+
+            <td>
+                @string.Format("{0:#,0}", @item.GiaBan) VND
+            </td>
+            <td>
+                <button type="button" class="btn btn-info">@Html.ActionLink("Chi tiết", "CTSanPhamThuongMai", new { id = item.ID }, new { @style = "color:white;" })</button>
+            </td>
+        </tr>
+    }
+
+</table>
+

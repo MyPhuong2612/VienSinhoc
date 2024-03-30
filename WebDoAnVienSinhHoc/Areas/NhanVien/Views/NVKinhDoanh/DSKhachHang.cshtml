@@ -1,0 +1,55 @@
+﻿@model IEnumerable<WebDoAnVienSinhHoc.Models.KhachHangTaiKhoan>
+
+@{
+    ViewBag.Title = "DSKhachHang";
+    Layout = "~/Areas/NhanVien/Views/Shared/_LayoutNhanVien.cshtml";
+}
+
+<h2>Danh sách khách hàng</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Họ tên
+        </th>
+        <th>
+            Ngày sinh
+        </th>
+        <th>
+            Giới tính
+        </th>
+        <th>
+            Địa chỉ
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaXa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenTK)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoTen)
+        </td>
+        <td>
+            @Convert.ToDateTime(item.NgaySinh).ToString("dd/MM/yyyy")
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GioiTinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaXa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenTK)
+        </td>
+    </tr>
+}
+
+</table>

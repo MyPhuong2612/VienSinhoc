@@ -1,0 +1,127 @@
+﻿@model WebDoAnVienSinhHoc.Models.KhachHangTaiKhoan1
+
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    WebDoAnVienSinhHoc.Models.VSHEntities1 db = new WebDoAnVienSinhHoc.Models.VSHEntities1();
+}
+
+<h2>Đăng Ký</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Vui lòng điền vào mẫu này để tạo tài khoản.</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <div><label>Tên đăng nhập</label></div>
+                @Html.EditorFor(model => model.TenTaiKhoan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenTaiKhoan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <div><label>Mật khẩu</label></div>
+                @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
+                @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <div><label>Họ tên</label></div>
+                @Html.EditorFor(model => model.HoTen, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <div><label>Ngày sinh</label></div>
+                @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+
+            <div class="col-md-10">
+                <div><label>Giới tính</label></div>
+                <span><input type="radio" name="GioiTinh" value="Nam" />Nam</span>
+                <span><input type="radio" name="GioiTinh" value="Nữ" />Nữ</span>
+            </div>
+        </div>
+
+
+
+
+
+        @*test*@
+        <div class="form-group">
+            <div class="col-md-10">
+                <div><label>Tỉnh</label></div>
+                <select class="form-control" name="MaTinh">
+                    @foreach (var item in db.Tinhs.ToList())
+                    {
+                        <option value="@item.MaTinh">@item.TenTinh</option>
+                    }
+                </select>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <div><label>Huyện</label></div>
+                <select class="form-control" name="MaHuyen">
+                    @foreach (var item in db.spHuyenTheoTinh(79))
+                    {
+                        <option value="@item.MaHuyen">@item.TenHuyen</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <div><label>Xã</label></div>
+                <select class="form-control" name="MaXa">
+                    @foreach (var item in db.spXaTheoHuyen(767).ToList())
+                    {
+                        <option value="@item.MaXa">@item.TenXa</option>
+                    }
+                </select>
+                @Html.ValidationMessageFor(model => model.MaXa, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <div><label>Số nhà</label></div>
+                @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @*test*@
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Đăng ký" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Trở lại", "ListSP")
+</div>

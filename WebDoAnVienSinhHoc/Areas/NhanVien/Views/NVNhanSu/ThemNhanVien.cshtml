@@ -1,0 +1,170 @@
+﻿@model WebDoAnVienSinhHoc.Models.viewThongTinNhanVien
+
+@{
+    ViewBag.Title = "ThemNhanVien";
+    Layout = "~/Areas/NhanVien/Views/Shared/_LayoutNhanVien.cshtml";
+
+    WebDoAnVienSinhHoc.Models.VSHEntities1 db = new WebDoAnVienSinhHoc.Models.VSHEntities1();
+}
+
+<h2>ThemNhanVien</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>viewThongTinNhanVien</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Tên đăng nhập</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TenTaiKhoan, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TenTaiKhoan, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Mật khẩu</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Họ tên</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.HoTen, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.HoTen, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Ngày sinh</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+            @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Giới tính</label>
+        <div class="col-md-10">
+            <span><input type="radio" name="GioiTinh" value="Nam" />Nam</span>
+            <span><input type="radio" name="GioiTinh" value="Nữ" />Nữ</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Lương</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Luong, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Luong, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">SĐT</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Email</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Chức vụ</label>
+        <div class="col-md-10">
+            <select class="form-control" name="maCV">
+                @foreach (var item in db.ChucVus.ToList())
+                {
+                    <option value="@item.MaChucVu">@item.TenChucVu</option>
+                }
+            </select>
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Phòng ban</label>
+        <div class="col-md-10">
+            <select class="form-control" name="maPB">
+                @foreach (var item in db.PhongBans.ToList())
+                {
+                    <option value="@item.MaPhongBan">@item.TenPhongBan</option>
+                }
+            </select>
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Thuộc Tỉnh</label>
+        <div class="col-md-10">
+            <select class="form-control" name="MaTinh">
+                @foreach (var item in db.Tinhs.ToList())
+                {
+                    <option value="@item.MaTinh">@item.TenTinh</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Thuộc Huyện</label>
+        <div class="col-md-10">
+            <select class="form-control" name="MaHuyen">
+                @foreach (var item in db.spHuyenTheoTinh(79))
+                {
+                    <option value="@item.MaHuyen">@item.TenHuyen</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Thuộc Xã</label>
+        <div class="col-md-10">
+            <select class="form-control" name="MaXa">
+                @foreach (var item in db.spXaTheoHuyen(767).ToList())
+                {
+                    <option value="@item.MaXa">@item.TenXa</option>
+                }
+            </select>
+            @Html.ValidationMessageFor(model => model.MaXa, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Số nhà</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
